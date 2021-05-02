@@ -15,5 +15,15 @@ namespace Tests.EditMode
 
             Assert.NotNull(playableDirector.playableAsset);
         }
+
+        [Test]
+        public void Prefab_PlayableDirector_PlaysOnAwake()
+        {
+            var prefab = Resources.Load<GameObject>("Prefabs/TheAnimation");
+            var gameObject = GameObject.Instantiate(prefab);
+            var playableDirector = gameObject.GetComponent<PlayableDirector>();
+
+            Assert.IsTrue(playableDirector.playOnAwake);
+        }
     }
 }
